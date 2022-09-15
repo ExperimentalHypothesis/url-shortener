@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Form!</title>
+</head>
+<body>
+<h2>URL shortener</h2>
+<form method="POST" action="{{ url_for('form') }}">
+    {{ form.csrf_token }}
+    {{ form.url.label }}
+    {{ form.url }}
+    <ul>
+    {% for error in form.url.errors %}
+        <li style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
